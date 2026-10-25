@@ -27,11 +27,11 @@ export default function CartSummary({
             <span className="ds-muted">
               Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'})
             </span>
-            <span>${subtotal.toFixed(2)}</span>
+            <span>${Number(subtotal || 0).toFixed(2)}</span>
           </div>
           <div className="ds-between">
             <span className="ds-muted">Delivery fee</span>
-            <span>{deliveryFee > 0 ? `$${deliveryFee.toFixed(2)}` : 'Free'}</span>
+            <span>{deliveryFee > 0 ? `$${Number(deliveryFee || 0).toFixed(2)}` : 'Free'}</span>
           </div>
           <div className="ds-between">
             <strong>Total</strong>

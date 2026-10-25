@@ -21,7 +21,7 @@ function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
         <CardTitle>{item.name}</CardTitle>
         {item.category?.name && (
           <CardMeta>
-            <Badge tone="soft">{item.category.name}</Badge>
+            <Badge tone="soft">{item.category?.name}</Badge>
             {unavailable && <Badge tone="danger">Sold out</Badge>}
           </CardMeta>
         )}

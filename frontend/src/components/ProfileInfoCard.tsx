@@ -16,7 +16,7 @@ function ProfileInfoCard({ user, onUpdate }: ProfileInfoCardProps) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
-  const startEdit = () => {
+  const startEdit = async () => {
     setFirstName(user.firstName ?? '');
     setLastName(user.lastName ?? '');
     setEmail(user.email ?? '');
@@ -24,7 +24,7 @@ function ProfileInfoCard({ user, onUpdate }: ProfileInfoCardProps) {
     setEditing(true);
   };
 
-  const cancelEdit = () => {
+  const cancelEdit = async () => {
     setEditing(false);
     setError('');
   };
@@ -34,8 +34,8 @@ function ProfileInfoCard({ user, onUpdate }: ProfileInfoCardProps) {
     setSaving(true);
     setError('');
     try {
-      const updated = await api.put('/auth/profile/', { firstName, lastName, email });
-      onUpdate(updated);
+      const res = await api.put<User>('/auth/profile/', { firstName, lastName, email });
+      onUpdate(res.data);
       setEditing(false);
     } catch (err: any) {
       setError(err?.message || 'Could not update your profile. Please try again.');

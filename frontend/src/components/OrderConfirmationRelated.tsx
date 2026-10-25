@@ -19,7 +19,7 @@ export default function OrderConfirmationRelated({ items, onAddItem }: OrderConf
       <Grid size="sm">
         {items.map((item) => (
           <Card key={item.id}>
-            <Media src={item.image_url} alt={item.name} ratio="square" badge={item.is_special ? 'Special' : undefined} />
+            <Media src={item.imageUrl} alt={item.name} ratio="square" badge={item.isSpecial ? 'Special' : undefined} />
             <CardBody>
               <CardTitle>{item.name}</CardTitle>
               {item.description && <CardMeta>{item.description}</CardMeta>}
@@ -29,10 +29,10 @@ export default function OrderConfirmationRelated({ items, onAddItem }: OrderConf
                   variant="secondary"
                   size="md"
                   onClick={() => onAddItem?.(item)}
-                  disabled={!item.is_available}
+                  disabled={!item.isAvailable}
                 >
                   <Icon name="plus" size={16} />
-                  {item.is_available ? 'Add to cart' : 'Sold out'}
+                  {item.isAvailable ? 'Add to cart' : 'Sold out'}
                 </Button>
               </CardFooter>
             </CardBody>

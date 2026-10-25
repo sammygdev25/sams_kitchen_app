@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import type { Order } from '../types';
 import {
   Card,
@@ -68,7 +67,6 @@ export default function OrderHistoryList({ orders }: OrderHistoryListProps) {
             <CardFooter>
               <Price value={order.totalAmount} />
               <Button
-                as={Link}
                 to={`/order-confirmation/${order.id}`}
                 variant="ghost"
               >

@@ -38,7 +38,7 @@ export default function HomeFeatured({ items, loading, onAddToCart }: HomeFeatur
                 <CardTitle>{item.name}</CardTitle>
                 {item.category?.name && (
                   <CardMeta>
-                    <Icon name="tag" size={14} /> {item.category.name}
+                    <Icon name="tag" size={14} /> {item.category?.name}
                   </CardMeta>
                 )}
                 <div className="ds-between">

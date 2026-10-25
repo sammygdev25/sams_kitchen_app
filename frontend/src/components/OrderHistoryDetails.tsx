@@ -36,7 +36,7 @@ export default function OrderHistoryDetails({ user, orderCount, totalSpent }: Or
 
         <div className="ds-grid ds-grid-2" style={{ marginTop: '1.5rem' }}>
           <Stat value={String(orderCount)} label="Orders placed" icon="package" />
-          <Stat value={`$${totalSpent.toFixed(2)}`} label="Total spent" icon="dollar" />
+          <Stat value={`$${Number(totalSpent || 0).toFixed(2)}`} label="Total spent" icon="dollar" />
         </div>
       </div>
     </Section>

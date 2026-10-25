@@ -72,11 +72,7 @@ export default function OrderConfirmationPage() {
     );
   }
 
-  const summaryItems = (order.items || []).map((item) => ({
-    name: item.menuItem?.name || `Item #${item.menuItemId}`,
-    quantity: item.quantity,
-    price: item.price,
-  }));
+  const summaryItems = Array.isArray(order.items) ? order.items : [];
 
   return (
     <div className="ds-stack-lg">

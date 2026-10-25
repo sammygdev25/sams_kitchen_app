@@ -123,3 +123,23 @@ export const PaginatedResponseSchema = <T extends z.ZodTypeAny>(itemSchema: T) =
     results: z.array(itemSchema),
   });
 
+// Added by integration: exports other files import from this module.
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export const UserSchema = z.object({
+  id: z.coerce.number(),
+  username: z.string(),
+  email: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+}).passthrough();

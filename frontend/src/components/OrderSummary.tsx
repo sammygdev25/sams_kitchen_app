@@ -1,5 +1,6 @@
 import { Card, CardBody, CardTitle, Price, Stack } from './ui';
-import type { CartItem, OrderItem } from '../types';
+import type { OrderItem } from '../types';
+import type { CartItem } from '../contexts/CartContext.tsx';
 
 type SummaryItem = (CartItem | OrderItem) & {
   quantity: number;
