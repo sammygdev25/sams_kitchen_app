@@ -12,6 +12,10 @@ import { apiLimiter, authLimiter } from './middleware/rateLimit';
 import { requestLog } from './middleware/requestLog';
 import authRoutes from './routes/auth';
 import healthRoutes from './routes/health';
+import menuRoutes from './routes/menu';
+import ordersRoutes from './routes/orders';
+import paymentsRoutes from './routes/payments';
+import resOrderItemRoutes from './routes/res_order_item';
 
 const app = express();
 app.set('trust proxy', 1);
@@ -34,7 +38,14 @@ app.use('/api', apiLimiter);
 app.use('/api/auth', authLimiter);
 app.use('/api/auth', authRoutes);
 
-// DOMAIN_ROUTES_PLACEHOLDER
+app.use('/api/menu', menuRoutes);
+app.use('/api/orders', ordersRoutes);
+app.use('/api/payments', paymentsRoutes);
+app.use('/api/order_items', resOrderItemRoutes);
+app.use('/api/order-items', resOrderItemRoutes);
+app.use('/api', healthRoutes);
+app.use('/api', menuRoutes);
+app.use('/api', paymentsRoutes);
 // DOMAIN_ROUTES_END
 
 if (config.serveFrontend) {
